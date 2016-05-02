@@ -83,15 +83,7 @@ public class Tracker extends AppCompatActivity {
                 return true;
 
             case R.id.action_switchDay:
-                SharedPreferences.Editor editor = prefs.edit();
-                String day = prefs.getString("day", "a");
-                if(day.equals("a")){
-                    day = "b";
-                } else if (day.equals("b")){
-                    day = "a";
-                }
-                editor.putString("day", day);
-                editor.commit();
+                switchDay();
                 finish();
                 intent = new Intent(this, Tracker.class);
                 startActivity(intent);
@@ -105,9 +97,17 @@ public class Tracker extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onStop(){
-        super.onStop();
+
+    private void switchDay(){
+        SharedPreferences.Editor editor = prefs.edit();
+        String day = prefs.getString("day", "a");
+        if(day.equals("a")){
+            day = "b";
+        } else if (day.equals("b")){
+            day = "a";
+        }
+        editor.putString("day", day);
+        editor.commit();
     }
 
     @Override

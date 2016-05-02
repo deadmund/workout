@@ -8,24 +8,20 @@
     <string name="help_text">
 <b>When viewing Workout</b>\n
 • Tap rows to mark them as \"completed\" for today.\n
-• Use \"reset all\" to reset all completed rows for the day.\n\n
+• Use \"reset all\" to reset all completed rows for the day.\n
 • Long press rows to set the weight.\n
 • Long press weights to easily increase weight 5 lbs.\n
 
-\n
 \n
 <b>When viewing Weight Chart</b>\n
 • Tap any row to highlight text red.\n
 • Tap maximum weight to set new maximum.\n
 
-\n\n\n\n
+\n
 <b>Background Information</b>\n
 This workout is based on Jason Blaha\'s ice cream fitness 5x5 also known as ICF or ICF5x5. It\'s extremely popular because
 it increases strength very quickly. It\'s designed for novices and it has many many testimonials online, which prove its
-effectiveness. You can read all about it here: https://www.muscleandstrength.com/workouts/jason-blaha-ice-cream-fitness-
-5x5-novice-workout if you\'re interested and you can Google it to see the accolades. (I know it says not to change anything.
-The changes made are minimal, because we will be doing the workout only once / week and cable crunches are awkward as
-hell.).  This is hypertrophy lifting, which means lifting high weights (not body weight) in low reps.\n\n
+effectiveness. You can read all about it here: <a href="https://www.muscleandstrength.com/workouts/jason-blaha-ice-cream-fitness-5x5-novice-workout">https://www.muscleandstrength.com/workouts/jason-blaha-ice-cream-fitness-5x5-novice-workout</a> \n\n
 </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_help">Help</string>
