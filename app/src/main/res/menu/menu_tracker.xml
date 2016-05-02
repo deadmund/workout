@@ -2,12 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context="net.ednovak.workout.Tracker">
     <item android:id="@+id/action_clear" android:title="Reset All"
-        android:orderInCategory="99" app:showAsAction="ifRoom" />
+        android:orderInCategory="100" app:showAsAction="ifRoom" />
     <item android:id="@+id/action_chart" android:title="Weight Chart"
         android:orderInCategory="98"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/action_help" android:title="Help"
-        android:orderInCategory="100"
+        android:orderInCategory="101"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_switchDay" android:title="Switch Workout A/B"
+        android:orderInCategory="99"
+        app:showAsAction="ifRoom" />
+
 
 </menu>
