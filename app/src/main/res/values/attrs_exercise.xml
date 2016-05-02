@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="Exercise">
+        <attr name="exer_text" format="string" />
+        <attr name="exer_weight" format="string" />
+        <attr name="exer_dimension" format="dimension" />
+        <attr name="exer_color" format="color" />
+        <attr name="exer_drawable" format="color|reference" />
+    </declare-styleable>
+</resources>

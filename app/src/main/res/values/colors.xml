@@ -1,0 +1,15 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="finishedGreen">#008A10</color>
+    <color name="textGrey">#112B5C</color> <!-- #1a1A1A -->
+    <color name="weightRed">#660000</color>
+    <color name="white">#ffffff</color>
+    <color name="defaultHoloGrey">#EEEEEE</color>
+    <color name="weightBGGreyLight">#E7E7E7</color>
+    <color name="weightBGGrey">#AAAAAA</color>
+    <color name="weightBGGreyPressed">#6B6B6B</color>
+    <color name="hrBarGrey">#1f1f1f</color>
+    <color name="highlightRed">#AA0000</color>
+
+</resources>
