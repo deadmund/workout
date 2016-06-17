@@ -41,21 +41,40 @@ import java.util.ArrayList;
 public class WeightChart extends AppCompatActivity {
     private final static String TAG = WeightChart.class.getName();
 
-    private int max;
     private SharedPreferences sharedPrefs;
     private Context ctx;
+
+    private float[] platesAvail;
+    private int bar;
+    private int max;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_chart);
 
-        sharedPrefs = getPreferences(MODE_PRIVATE);
+        ctx = this;
+    }
+
+    protected void onResume(){
+        super.onResume();
+
+        sharedPrefs = getSharedPreferences(Splash.name, MODE_PRIVATE);
         max = sharedPrefs.getInt("max", 200);
 
-        ctx = this;
+        String unit = sharedPrefs.getString("unit", "lbs");
+        if(unit.equals("lbs")){
+            bar = 45;
+            platesAvail = new float[] {45, 35, 25, 10, 5, 2.5f};
+        } else if(unit.equals("kg")){
+            bar = 20;
+            platesAvail = new float[] {25, 20, 15, 10, 5, 2.5f, 1.25f};
+        }
+
+
 
         drawTable();
+
     }
 
     /**
@@ -63,8 +82,6 @@ public class WeightChart extends AppCompatActivity {
      */
     // This finds what plates should go on each side of the bar for the desired weight
     private Float[] findPlates(int weight){
-        final float[] platesAvail = {45, 35, 25, 10, 5, 2.5f};
-        int bar = 45;
 
         ArrayList<Float> answer = new ArrayList<Float>();
 
@@ -112,8 +129,8 @@ public class WeightChart extends AppCompatActivity {
         tl.removeAllViews(); // Destory all the rows
 
         // Draw all the rows
-        for(int total = 45; total <= max; total+=5){
-            int aboveBar = total - 45;
+        for(int total = bar; total <= max; total+=5){
+            int aboveBar = total - bar;
             Float[] plates = findPlates(total);
 
             TableRow tr = new TableRow(this);
@@ -204,8 +221,8 @@ public class WeightChart extends AppCompatActivity {
     }
 
     private void setMax(int newMax){
-        if(newMax < 45){
-            newMax = 45;
+        if(newMax < bar){
+            newMax = bar;
             Toast.makeText(ctx, "Minimum weight is 45 lbs", Toast.LENGTH_LONG).show();
         }
         max = newMax;

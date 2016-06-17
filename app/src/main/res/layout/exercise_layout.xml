@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="30sp"
-            android:text="0 lbs"
+            android:text="0"
             android:textColor="@color/weightRed"
             android:layout_margin="1dp"
             android:background="@drawable/rounded_corner" />

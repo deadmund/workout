@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.text.Html;
 import android.util.AttributeSet;
@@ -47,12 +48,15 @@ public class Exercise extends LinearLayout {
     private int weightInteger;
     private boolean finished = false;
 
+    SharedPreferences prefs;
+
 
     public Exercise(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         this.setOrientation(HORIZONTAL);
 
+        prefs = context.getSharedPreferences(Splash.name, context.MODE_PRIVATE);
 
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.Exercise, 0, 0);
@@ -162,7 +166,8 @@ public class Exercise extends LinearLayout {
 
     public void setWeight(int newW){
         weightInteger = newW;
-        weight.setText(weightInteger + " lbs");
+        String unit = prefs.getString("unit", "lbs");
+        weight.setText(weightInteger + " " + unit);
     }
 
     public int getWeight(){
@@ -179,5 +184,9 @@ public class Exercise extends LinearLayout {
         box.clearAnimation();
         box.setBackgroundColor(getResources().getColor(R.color.defaultHoloGrey));
         box.setAlpha(1.0f);
+    }
+
+    public boolean getFinished(){
+        return finished;
     }
 }

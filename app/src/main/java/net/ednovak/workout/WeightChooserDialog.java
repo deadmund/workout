@@ -17,9 +17,11 @@ package net.ednovak.workout;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 /**
  * Created by ejnovak on 3/11/16.
@@ -38,6 +40,7 @@ public class WeightChooserDialog extends Dialog {
         if(val < 0 || val > 200){
             throw new IllegalArgumentException("Value (" + val + ") must be 0 < val < 200");
         }
+
 
         this.setTitle("Choose Weight");
         this.setContentView(R.layout.weight_dialog);

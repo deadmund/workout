@@ -25,6 +25,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
+import java.util.Calendar;
+
 public class Tracker extends AppCompatActivity {
     private final static String TAG = Tracker.class.getName();
 
@@ -34,7 +36,7 @@ public class Tracker extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        prefs = getPreferences(MODE_PRIVATE);
+        prefs = getSharedPreferences(Splash.name, MODE_PRIVATE);
         String day = prefs.getString("day", "a");
         if(day.equals("a")){
             setContentView(R.layout.activity_tracker_a);
@@ -104,6 +106,13 @@ public class Tracker extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
+            case R.id.action_switchUnit:
+                switchUnit();
+                finish();
+                intent = new Intent(this, Tracker.class);
+                startActivity(intent);
+                return true;
+
 
             default:
                 Log.d(TAG, "Somehow a menu item that should not exist was selected: " + id);
@@ -122,6 +131,18 @@ public class Tracker extends AppCompatActivity {
             day = "a";
         }
         editor.putString("day", day);
+        editor.commit();
+    }
+
+    private void switchUnit(){
+        SharedPreferences.Editor editor = prefs.edit();
+        String unit = prefs.getString("unit", "lbs");
+        if(unit.equals("lbs")){
+            unit = "kg";
+        } else if (unit.equals("kg")) {
+            unit = "lbs";
+        }
+        editor.putString("unit", unit);
         editor.commit();
     }
 

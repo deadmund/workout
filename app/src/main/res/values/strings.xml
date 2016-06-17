@@ -28,4 +28,6 @@ effectiveness. You can read all about it here: <a href="https://www.muscleandstr
     <string name="title_activity_weight_chart">WeightChart</string>
 
     <string name="hello_world">Hello world!</string>
+
+    <string name="title_activity_splash">Splash</string>
 </resources>
