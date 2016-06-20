@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -115,7 +116,9 @@ public class Tracker extends AppCompatActivity {
 
 
             default:
+                // This really should never happen
                 Log.d(TAG, "Somehow a menu item that should not exist was selected: " + id);
+                Toast.makeText(getApplicationContext(), "Invalid menu option", Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);

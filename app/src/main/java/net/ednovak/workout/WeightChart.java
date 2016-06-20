@@ -26,6 +26,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,11 +55,9 @@ public class WeightChart extends AppCompatActivity {
         setContentView(R.layout.activity_weight_chart);
 
         ctx = this;
-    }
 
-    protected void onResume(){
-        super.onResume();
 
+        // Set configurations / unit
         sharedPrefs = getSharedPreferences(Splash.name, MODE_PRIVATE);
         max = sharedPrefs.getInt("max", 200);
 
@@ -68,13 +67,15 @@ public class WeightChart extends AppCompatActivity {
             platesAvail = new float[] {45, 35, 25, 10, 5, 2.5f};
         } else if(unit.equals("kg")){
             bar = 20;
-            platesAvail = new float[] {25, 20, 15, 10, 5, 2.5f, 1.25f};
+            platesAvail = new float[] {25, 20, 15, 10, 5, 2.5f};
         }
+        // Adjust title
+        setTitle("Weight Chart (" + unit + ")");
 
 
 
+        // Draw actual table of weights
         drawTable();
-
     }
 
     /**
@@ -188,7 +189,7 @@ public class WeightChart extends AppCompatActivity {
 
             // Total weight
             TextView tvTotal = new TextView(this);
-            TableRow.LayoutParams lpTV1 = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+            TableRow.LayoutParams lpTV1 = new TableRow.LayoutParams(75, TableRow.LayoutParams.WRAP_CONTENT);
             lpTV1.setMargins(0, 0, 0, 10);
             tvTotal.setGravity(Gravity.CENTER);
             tvTotal.setTextColor(getResources().getColor(R.color.textGrey));
@@ -199,7 +200,7 @@ public class WeightChart extends AppCompatActivity {
 
             // Above Bar
             TextView tvAbove = new TextView(this);
-            TableRow.LayoutParams lpTV2 = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+            TableRow.LayoutParams lpTV2 = new TableRow.LayoutParams(75, TableRow.LayoutParams.WRAP_CONTENT);
             tvAbove.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL);
             tvAbove.setTextColor(getResources().getColor(R.color.textGrey));
             tvAbove.setTextSize(16f);
@@ -209,7 +210,7 @@ public class WeightChart extends AppCompatActivity {
 
             // On Each Side
             TextView tvSide = new TextView(this);
-            TableRow.LayoutParams lpTV3 = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.0f);
+            TableRow.LayoutParams lpTV3 = new TableRow.LayoutParams(100, TableRow.LayoutParams.WRAP_CONTENT);
             tvSide.setGravity(Gravity.CENTER);
             tvSide.setTextColor(getResources().getColor(R.color.textGrey));
             tvSide.setTextSize(16f);

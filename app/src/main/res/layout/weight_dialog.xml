@@ -16,6 +16,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/numberPicker1"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_centerInParent="true">
 
         <Button
@@ -23,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="1dp"
-            android:text="Set" />
+            android:text="Ok" />
 
         <Button
             android:id="@+id/button2"

@@ -3,14 +3,20 @@ package net.ednovak.workout;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -44,8 +50,37 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash);
+
+        // Place version
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            String v = pInfo.versionName;
+
+            TextView tv = new TextView(this);
+            SpannableString spanString = new SpannableString("V" + v);
+            spanString.setSpan(new StyleSpan(Typeface.ITALIC), 0, spanString.length(), 0);
+            tv.setText(spanString);
+            tv.setTextColor(getResources().getColor(R.color.white));
+            tv.setTextSize(10);
+
+            RelativeLayout.LayoutParams tmpParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            tmpParams.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.title_pic);
+            tmpParams.addRule(RelativeLayout.ALIGN_RIGHT, R.id.title_pic);
+            tmpParams.setMargins(0, 0, 5, 0);
+            tv.setLayoutParams(tmpParams);
+
+            RelativeLayout top = (RelativeLayout)findViewById(R.id.topRL);
+            top.addView(tv);
+
+        } catch(PackageManager.NameNotFoundException e){
+
+        }
+
+
+
         
     }
+
 
 
     @Override
