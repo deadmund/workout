@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="net.ednovak.workout.Tracker">
+    tools:context="net.ednovak.icfworkout.Tracker">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,44 +15,44 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
-            <net.ednovak.workout.Exercise
-                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.workout"
+            <net.ednovak.icfworkout.Exercise
+                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.icfworkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 custom:exer_text="Squats 5 x 5" />
 
-            <net.ednovak.workout.Exercise
-                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.workout"
+            <net.ednovak.icfworkout.Exercise
+                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.icfworkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 custom:exer_text="Deadlift 1 x 5"/>
 
-            <net.ednovak.workout.Exercise
-                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.workout"
+            <net.ednovak.icfworkout.Exercise
+                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.icfworkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 custom:exer_text="Standing Press 5 x 5" />
 
-            <net.ednovak.workout.Exercise
-                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.workout"
+            <net.ednovak.icfworkout.Exercise
+                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.icfworkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 custom:exer_text="Bent Over Row 5 x 5" />
 
-            <net.ednovak.workout.Exercise
-                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.workout"
+            <net.ednovak.icfworkout.Exercise
+                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.icfworkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 custom:exer_text="Close Grip Bench 3 x 8" />
 
-            <net.ednovak.workout.Exercise
-                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.workout"
+            <net.ednovak.icfworkout.Exercise
+                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.icfworkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 custom:exer_text="Straight Bar Curls 3 x 8" />
 
-            <net.ednovak.workout.Exercise
-                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.workout"
+            <net.ednovak.icfworkout.Exercise
+                xmlns:custom="http://schemas.android.com/apk/res/net.ednovak.icfworkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 custom:exer_text="Cable Crunches 3 x 10" />

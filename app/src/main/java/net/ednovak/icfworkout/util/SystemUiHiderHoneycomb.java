@@ -1,4 +1,4 @@
-package net.ednovak.workout.util;
+package net.ednovak.icfworkout.util;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

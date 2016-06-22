@@ -13,9 +13,8 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package net.ednovak.workout;
+package net.ednovak.icfworkout;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -25,8 +24,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
-import java.util.Calendar;
 
 public class Tracker extends AppCompatActivity {
     private final static String TAG = Tracker.class.getName();

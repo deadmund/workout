@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "net.ednovak.workout"
+        applicationId "net.ednovak.icfworkout"
         minSdkVersion 18
         targetSdkVersion 22
     }

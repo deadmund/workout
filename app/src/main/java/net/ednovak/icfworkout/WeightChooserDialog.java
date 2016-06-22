@@ -13,15 +13,13 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package net.ednovak.workout;
+package net.ednovak.icfworkout;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 
 /**
  * Created by ejnovak on 3/11/16.
