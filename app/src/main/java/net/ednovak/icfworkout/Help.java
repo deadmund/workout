@@ -15,10 +15,14 @@
 
 package net.ednovak.icfworkout;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class Help extends AppCompatActivity {
@@ -40,5 +44,27 @@ public class Help extends AppCompatActivity {
 
         }
 
+    }
+
+    public void eraseLog(View v){
+        final Context ctx = Help.this; // grab context ref for all this
+
+        AlertDialog.Builder alDiagBuilder = new AlertDialog.Builder(ctx, R.style.Base_Theme_AppCompat_Light_Dialog);
+        alDiagBuilder.setTitle("Delete Log");
+        alDiagBuilder.setMessage("Are you sure you want to delete all log entries?");
+
+        alDiagBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id){
+                // Clear Log
+                LoggerFragment.eraseLog(ctx);
+            }
+        });
+        alDiagBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id){
+                dialog.cancel();
+            }
+        });
+
+        alDiagBuilder.create().show();
     }
 }

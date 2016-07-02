@@ -47,7 +47,7 @@ public class WeightChart extends AppCompatActivity {
 
 
         // Set configurations / unit
-        sharedPrefs = getSharedPreferences(Splash.name, MODE_PRIVATE);
+        sharedPrefs = getSharedPreferences(SplashFragment.name, MODE_PRIVATE);
         max = sharedPrefs.getInt("max", 200);
 
         String unit = sharedPrefs.getString("unit", "lbs");

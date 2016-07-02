@@ -37,6 +37,7 @@ public class Exercise extends LinearLayout {
     private LinearLayout box;
     private int weightInteger;
     private boolean finished = false;
+    private Context ctx;
 
     SharedPreferences prefs;
 
@@ -46,9 +47,11 @@ public class Exercise extends LinearLayout {
 
         this.setOrientation(HORIZONTAL);
 
-        prefs = context.getSharedPreferences(Splash.name, context.MODE_PRIVATE);
+        ctx = context;
 
-        TypedArray a = context.obtainStyledAttributes(attrs,
+        prefs = ctx.getSharedPreferences(SplashFragment.name, ctx.MODE_PRIVATE);
+
+        TypedArray a = ctx.obtainStyledAttributes(attrs,
                 R.styleable.Exercise, 0, 0);
         String titleText = a.getString(R.styleable.Exercise_exer_text);
         String weightText = a.getString(R.styleable.Exercise_exer_weight);
@@ -63,7 +66,7 @@ public class Exercise extends LinearLayout {
         // Here we build the child views in code. They could also have
         // been specified in an XML file.
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.exercise_layout, this, true);
 
         // These must happen before the setTitle and setWeight methods are called
@@ -73,7 +76,7 @@ public class Exercise extends LinearLayout {
 
         // These must happen after the inflation step
         setTitle(titleText);
-        setWeight(weightInteger);
+        setWeight(weightInteger, false);
         //setColor(valueColor);
 
         // Set the tag
@@ -86,8 +89,7 @@ public class Exercise extends LinearLayout {
         weight.setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                weightInteger += 5;
-                setWeight(weightInteger);
+                setWeight(weightInteger + 5, true);
                 return true;
             }
         });
@@ -116,13 +118,13 @@ public class Exercise extends LinearLayout {
                 //TextView cur = (TextView)v;
 
                 int startingWeight = Math.min(weightInteger/5, 200);
-                final WeightChooserDialog d = new WeightChooserDialog(getContext(), weightInteger/5);
+                final WeightChooserDialog d = new WeightChooserDialog(ctx, weightInteger/5);
 
                 d.yesButt.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v) {
-                        setWeight(d.getValue() * 5);
+                        setWeight(d.getValue() * 5, true);
                         d.dismiss();
                     }
                 });
@@ -154,10 +156,16 @@ public class Exercise extends LinearLayout {
         title.setText(newTitleText);
     }
 
-    public void setWeight(int newW){
+    public void setWeight(int newW, boolean log){
         weightInteger = newW;
         String unit = prefs.getString("unit", "lbs");
         weight.setText(weightInteger + " " + unit);
+
+        // Log the new weight
+        if(log){
+            String msg = System.currentTimeMillis() + "," + this.title.getText().toString() + "," + weightInteger;
+            LoggerFragment.writeLog(ctx, msg);
+        }
     }
 
     public int getWeight(){

@@ -34,7 +34,7 @@ public class Tracker extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        prefs = getSharedPreferences(Splash.name, MODE_PRIVATE);
+        prefs = getSharedPreferences(SplashFragment.name, MODE_PRIVATE);
         String day = prefs.getString("day", "a");
         if(day.equals("a")){
             setContentView(R.layout.activity_tracker_a);
@@ -47,7 +47,7 @@ public class Tracker extends AppCompatActivity {
             try {
                 if (mainView.getChildAt(i).getTag().toString().equals("exercise")) {
                     Exercise cur = (Exercise) mainView.getChildAt(i);
-                    cur.setWeight(prefs.getInt(cur.getTitle(), 0));
+                    cur.setWeight(prefs.getInt(cur.getTitle(), 0), false);
                 }
             } catch (NullPointerException e) {
                 continue;
@@ -110,7 +110,6 @@ public class Tracker extends AppCompatActivity {
                 intent = new Intent(this, Tracker.class);
                 startActivity(intent);
                 return true;
-
 
             default:
                 // This really should never happen
