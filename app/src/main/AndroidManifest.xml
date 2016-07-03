@@ -12,13 +12,16 @@
         <activity
             android:name=".Tracker"
             android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_tracker"></activity>
+            android:label="@string/title_activity_tracker" />
         <activity
             android:name=".Help"
             android:label="@string/title_activity_help" />
         <activity
             android:name=".WeightChart"
             android:label="@string/title_activity_weight_chart" />
+        <activity
+            android:name=".LoggerActivity"
+            android:label="@string/title_activity_logger_act"/>
         <activity
             android:name=".Splash"
             android:configChanges="orientation|keyboardHidden|screenSize"

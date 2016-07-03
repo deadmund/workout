@@ -1,0 +1,4 @@
+Anti-Aliasing in logo
+Dump log as CSV feature
+Save "marked as completed" exercises in onPause (load in onResume)
+Multiple Language Support

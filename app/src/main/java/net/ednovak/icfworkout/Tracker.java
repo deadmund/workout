@@ -111,6 +111,11 @@ public class Tracker extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
+            case R.id.action_log:
+                intent = new Intent(this, LoggerActivity.class);
+                startActivity(intent);
+                return true;
+
             default:
                 // This really should never happen
                 Log.d(TAG, "Somehow a menu item that should not exist was selected: " + id);
