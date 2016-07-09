@@ -56,6 +56,14 @@ public class LoggerFragment extends Fragment {
     public void onResume(){
         super.onResume();
         displayLog();
+
+        // Set date
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
+        String dateS = sdf.format(System.currentTimeMillis());
+        TextView tv = (TextView) rootView.findViewById(R.id.logDate);
+        tv.setText(dateS);
+
+
     }
 
     private void displayLog() {
@@ -66,30 +74,31 @@ public class LoggerFragment extends Fragment {
 
         StringBuilder sb = new StringBuilder();
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
+        if(logText != null) {
 
-        String[] logLines = logText.split("\n");
-        for (int i = 0; i < logLines.length; i++) {
-            if (!logLines[i].equals("")) {
-                String[] parts = logLines[i].split(",");
+            String[] logLines = logText.split("\n");
+            for (int i = 0; i < logLines.length; i++) {
+                if (!logLines[i].equals("")) {
+                    String[] parts = logLines[i].split(",");
 
-                Date d = new Date(Long.valueOf(parts[0]));
-                sb.append(sdf.format(d) + "  " + parts[1] + ": " + parts[2] + "\n");
+                    Date d = new Date(Long.valueOf(parts[0]));
+                    sb.append(sdf.format(d) + "  " + parts[1] + ": " + parts[2] + "\n");
+                }
             }
+            Log.d(TAG, "sb: " + sb.toString());
+            if (sb.length() == 0) {
+                Log.d(TAG, "It's empty, adding placeholder text");
+                sb.append("Log entires are created when you increase your weight for the various exercises.");
+            }
+            tv.setText(sb.toString());
         }
-        Log.d(TAG, "sb: " + sb.toString());
-        if (sb.length() == 0) {
-            Log.d(TAG, "It's empty, adding placeholder text");
-            sb.append("Log entires are created when you increase your weight for the various exercises.");
-        }
-        tv.setText(sb.toString());
     }
 
 
 
 
     public static void writeLog(Context ctx, String msg){
-        // Test if file exists and append if so (otherwise create
-
+        // Test if file exists and append if so (otherwise create)
 
         File f = ctx.getFileStreamPath(fname);
         try {
